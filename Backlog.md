@@ -5,7 +5,7 @@
 ##1. List applications
 **User Story:** 
 As a end-user I want to be able to list all social network applications installed on my mobile phone.
-
+Something
 ##2. Block all applications
 **User Story:** 
 As a end-user I want to be able to block all social network applications installed on my mobile phone.
