@@ -160,12 +160,12 @@ public class MainActivity extends Activity implements
 						Intent intent = new Intent();
 						intent.setClass(getActivity(), CoreService.class);
 						getActivity().stopService(intent);
-						startBlock.setText("开始屏蔽应用");
+						startBlock.setText("Unblock");
 					} else {
 						Intent intent = new Intent();
 						intent.setClass(getActivity(), CoreService.class);
 						getActivity().startService(intent);
-						startBlock.setText("停止屏蔽应用");
+						startBlock.setText("Block");
 					}
 				} else if (view == blockListBtn) {
 					Intent intent = new Intent();
