@@ -7,6 +7,7 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 
@@ -48,14 +49,24 @@ public class CoreService extends Service {
 			Logger.getLogger().d( "block service is running..." );
 			
 			mBlockList = BlockUtils.getBlockList(getApplicationContext());
+
+            String packageName = "";
+
+            if(Build.VERSION.SDK_INT > 20)
+            {
+                packageName = mActivityManager.getRunningAppProcesses().get(0).processName;
+            }
+            else
+            {
+                packageName = mActivityManager.getRunningTasks(1)
+                        .get(0).topActivity.getPackageName();
+            }
+
 			
-			ComponentName topActivity = mActivityManager.getRunningTasks(1)
-					.get(0).topActivity;
-			
-			if ( mBlockList!=null && mBlockList.contains(topActivity.getPackageName()) ) {
+			if ( mBlockList!=null && mBlockList.contains(packageName) ) {
 				
-				Logger.getLogger().i( "block packageName：" + topActivity.getPackageName() );
-				Logger.getLogger().i( "block className：" + topActivity.getClassName() );
+				Logger.getLogger().i( "block packageName：" + packageName );
+				Logger.getLogger().i( "block className：" + packageName );
 				
 				Intent tancIntent = new Intent(getApplicationContext(), WarningActivity.class);
 				tancIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
