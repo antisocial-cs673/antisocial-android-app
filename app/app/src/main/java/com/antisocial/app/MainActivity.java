@@ -15,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.antisocial.app.service.CoreService;
 import com.antisocial.app.util.BlockUtils;
 
 public class MainActivity extends Activity implements
@@ -139,12 +138,9 @@ public class MainActivity extends Activity implements
 
 			blockListBtn = (Button) rootView.findViewById(R.id.set_block_list);
 				
-			
-			if(BlockUtils.isBlockServiceRunning(getActivity(), CoreService.class)){
-				startBlock.setText(R.string.stop_block);
-			}else{
-				startBlock.setText(R.string.start_block);
-			}
+
+            startBlock.setText(R.string.start_block);
+
 			
 			startBlock.setOnClickListener(onListener);
 			blockListBtn.setOnClickListener(onListener);
@@ -157,18 +153,17 @@ public class MainActivity extends Activity implements
 			@Override
 			public void onClick(View view) {
 				if (view == startBlock) {
-					if (BlockUtils.isBlockServiceRunning(getActivity(),
-							CoreService.class)) {
-						Intent intent = new Intent();
-						intent.setClass(getActivity(), CoreService.class);
-						getActivity().stopService(intent);
-						startBlock.setText(R.string.start_block);
-					} else {
-						Intent intent = new Intent();
-						intent.setClass(getActivity(), CoreService.class);
-						getActivity().startService(intent);
-						startBlock.setText(R.string.stop_block);
-					}
+                    String text = (String) startBlock.getText();
+
+                    if(text.equals(R.string.start_block))
+                    {
+                        startBlock.setText(R.string.stop_block);
+                    }
+                    else
+                    {
+                        startBlock.setText(R.string.start_block);
+                    }
+
 				} else if (view == blockListBtn) {
 					Intent intent = new Intent();
 					intent.setClass(getActivity(), BlockListActivity.class);

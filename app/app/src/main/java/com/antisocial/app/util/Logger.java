@@ -9,7 +9,6 @@ public class Logger {
 	 */
 	private String tag = "Logger";// application name
 
-	//TODO 配置Log打开或关闭
 	/**
 	 * debug or not
 	 */
