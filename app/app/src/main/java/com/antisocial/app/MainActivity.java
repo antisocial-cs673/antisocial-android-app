@@ -157,6 +157,7 @@ public class MainActivity extends Activity implements
 
                     if(text.equals(R.string.start_block))
                     {
+                        //http://stackoverflow.com/questions/28066231/how-to-gettopactivity-name-or-get-current-running-application-package-name-in-lo
                         startBlock.setText(R.string.stop_block);
                     }
                     else
