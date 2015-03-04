@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.cundong.appblock.MainActivity" >
+    tools:context="com.antisocial.app.MainActivity" >
 
     <item
         android:id="@+id/action_settings"
@@ -9,4 +9,4 @@
         android:title="@string/action_settings"/>
 
 </menu>
-<!-- From: file:/C:/Users/Jessica/Documents/GitHub/antisocial-android-app/app/app/src/main/res/menu/main.xml -->
+<!-- From: file:/C:/Users/Igibek/Documents/GitHub/antisocial-android-app/app/app/src/main/res/menu/main.xml -->
