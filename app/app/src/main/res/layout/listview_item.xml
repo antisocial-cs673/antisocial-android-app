@@ -6,7 +6,8 @@
     android:paddingBottom="5dip"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="5dip" >
+    android:paddingTop="5dip"
+    android:background="@color/light_blue"   >
 
     <ImageView
         android:id="@+id/app_logo"
