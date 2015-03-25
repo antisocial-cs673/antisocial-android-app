@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.IBinder;
 
 import com.antisocial.app.WarningActivity;
+import com.antisocial.app.util.ApiAdapter;
 import com.antisocial.app.util.BlockUtils;
 import com.antisocial.app.util.Logger;
 
@@ -50,19 +51,8 @@ public class CoreService extends Service {
 			
 			mBlockList = BlockUtils.getBlockList(getApplicationContext());
 
-            String packageName = "";
+            String packageName = ApiAdapter.getPackageName(mActivityManager);
 
-            if(Build.VERSION.SDK_INT > 20)
-            {
-                packageName = mActivityManager.getRunningAppProcesses().get(0).processName;
-            }
-            else
-            {
-                packageName = mActivityManager.getRunningTasks(1)
-                        .get(0).topActivity.getPackageName();
-            }
-
-			
 			if ( mBlockList!=null && mBlockList.contains(packageName) ) {
 				
 				Logger.getLogger().i( "block packageName：" + packageName );

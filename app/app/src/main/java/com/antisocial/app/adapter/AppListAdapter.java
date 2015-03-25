@@ -23,6 +23,7 @@ public class AppListAdapter extends BaseAdapter {
 	private Activity mInstance;
 	private List<PackageInfo> mInstalledList = null;
 	private ArrayList<String> mCheckedList = null;
+
 	
 	public AppListAdapter( Activity instance, List<PackageInfo> installedList, ArrayList<String> checkedList ){
 		mInstance = instance;

@@ -14,8 +14,6 @@ import android.preference.PreferenceManager;
 public class BlockUtils {
 
 	/**
-	 * 服务是否在运行
-	 * 
 	 * @param instance
 	 * @param serviceClass
 	 */
@@ -35,8 +33,6 @@ public class BlockUtils {
 	}
 	
 	/**
-	 * 获取block列表
-	 * 
 	 * @param context
 	 * @return
 	 */
@@ -53,8 +49,6 @@ public class BlockUtils {
 	}
 	
 	/**
-	 * 存储block列表
-	 * 
 	 * @param context
 	 * @param list
 	 * @return
