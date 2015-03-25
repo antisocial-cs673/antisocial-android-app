@@ -13,6 +13,18 @@ import android.preference.PreferenceManager;
 
 public class BlockUtils {
 
+    private static String currentMode = "all";
+
+    public static void setCurrentMode(String mode)
+    {
+        currentMode = mode;
+    }
+
+    public static String getCurrentMode()
+    {
+        return currentMode;
+    }
+
 	/**
 	 * @param instance
 	 * @param serviceClass
