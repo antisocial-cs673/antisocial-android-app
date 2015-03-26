@@ -91,6 +91,19 @@ public class MainActivity extends Activity implements
 	public boolean onNavigationItemSelected(int position, long id) {
 		// When the given dropdown item is selected, show its contents in the
 		// container view.
+        if(position == 0)
+        {
+            BlockUtils.setCurrentMode("all");
+        }
+        else if(position == 1)
+        {
+            BlockUtils.setCurrentMode("home");
+        }
+        else
+        {
+            BlockUtils.setCurrentMode("work");
+        }
+
 		getFragmentManager()
 				.beginTransaction()
 				.replace(R.id.container,

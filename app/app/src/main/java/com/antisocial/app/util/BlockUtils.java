@@ -18,6 +18,7 @@ public class BlockUtils {
     public static void setCurrentMode(String mode)
     {
         currentMode = mode;
+        Logger.getLogger().i("Set the current mode to" + mode);
     }
 
     public static String getCurrentMode()
@@ -33,7 +34,13 @@ public class BlockUtils {
 		
 		return isMyServiceRunning(instance, serviceClass);
 	}
-	
+
+    /**
+     *
+      * @param instance
+     * @param serviceClass
+     * @return
+     */
 	private static boolean isMyServiceRunning(Activity instance, Class<?> serviceClass) {
 	    ActivityManager manager = (ActivityManager) instance.getSystemService(Context.ACTIVITY_SERVICE);
 	    for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
@@ -46,13 +53,14 @@ public class BlockUtils {
 	
 	/**
 	 * @param context
-	 * @return
+	 * @return list of string of blocking apps
 	 */
 	public static ArrayList<String> getBlockList( Context context ){
 		ArrayList<String> list = new ArrayList<String>();
 		
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context); 
-		Set<String> set = sharedPreferences.getStringSet("applist", null);
+		Set<String> set = sharedPreferences.getStringSet(currentMode, null);
+
 		if(set!=null){
 			list =  new ArrayList<String>(set);
 		}
@@ -66,13 +74,13 @@ public class BlockUtils {
 	 * @return
 	 */
 	public static void save( Context context, ArrayList<String> list ){
-		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);  
-		 SharedPreferences.Editor editor= sharedPreferences.edit();  
-		 
-		 Set<String> set = new HashSet<String>(list);
-		 
-		 editor.putStringSet("applist", set);
-		 
-		 editor.commit();
+		 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+         SharedPreferences.Editor editor= sharedPreferences.edit();
+
+         Set<String> set = new HashSet<String>(list);
+
+         editor.putStringSet(currentMode, set);
+
+         editor.commit();
 	}
 }
