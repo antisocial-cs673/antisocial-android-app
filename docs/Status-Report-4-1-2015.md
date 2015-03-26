@@ -5,16 +5,22 @@
 
 **Team Members:** Igibek Koishybayev, Jessica Lichnowski, Khozaima Abizar Motiwala, Nirmit Shah, Sai Krishna Sankar Mettu, Shuangyi Yang, Yuxin Zhu
 
-##Work planned last week
+###Work planned last week
+1. Create Iteration #2 Presentation
+2. Complete timer functionality
+3. Complete profile functionality
+3. Review "quality assurance" document
+4. Review "constraits" document
+5. Review "requirements" document
 
-##Work completed last week
+###Work completed last week
 
-##Work planned for next week
+###Work planned for next week
 
-##Open issues
+###Open issues
 
-##Closed issues
+###Closed issues
 
-##Open risks
+###Open risks
 
-##Closed risks
+###Closed risks
