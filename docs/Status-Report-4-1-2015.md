@@ -12,6 +12,7 @@
 3. Review "quality assurance" document
 4. Review "constraits" document
 5. Review "requirements" document
+6. Create "metrics" document
 
 ###Work completed last week
 
