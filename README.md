@@ -1,3 +1,7 @@
+##Tips:
+
+*DANGEROUS:* If you have problems with logical merging conflict, sometimes it is better just delete local repository and clone it again.
+
 ## Helpful links:
 
  1. [Markdown Syntax][2] - extensive documentation on how to write Markdown formatted file;
