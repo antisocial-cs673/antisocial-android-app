@@ -1,4 +1,4 @@
-Step 1: Know your user
+**Step 1:** Know your user
 
 Step 2: Understand the business function in question
 
@@ -17,4 +17,10 @@ Step 9: Choose appropriate colors
 Step 10: Icons
 
 Steps 11: Loading
+
+Fonts: 
+Text: Roboto 12px;
+Header: 
+Colors: #fffff
+
 

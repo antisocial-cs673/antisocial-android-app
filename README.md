@@ -1,7 +1,12 @@
+##Tips:
+
+*DANGEROUS:* If you have problems with logical merging conflict, sometimes it is better just delete local repository and clone it again.
+
 ## Helpful links:
 
  1. [Markdown Syntax][2] - extensive documentation on how to write Markdown formatted file;
  2. [Issues][1] - track the bugs, issues and other important staff related with project;
+ 3. [UI Mockup][3]
 
 ## Folder organizations:
  - **docs** - contains all documentations
@@ -23,3 +28,4 @@
 
   [1]: https://github.com/antisocial-cs673/antisocial-android-app/issues "Issues"
 [2]:http://daringfireball.net/projects/markdown/syntax
+[3]:https://moqups.com/igibek@bu.edu/ZlQtBg15/
