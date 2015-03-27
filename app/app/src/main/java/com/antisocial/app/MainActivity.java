@@ -2,6 +2,7 @@ package com.antisocial.app;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class MainActivity extends Activity implements
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
     private final int MAIN_DISPLAY_TIME = 1000;
+    private AlertDialog alert;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,8 @@ public class MainActivity extends Activity implements
                                         getString(R.string.title_section1),
                                         getString(R.string.title_section2),
                                         getString(R.string.title_section3), }), this);
+
+        actionBar.setSelectedNavigationItem(2);
 	}
 
 
@@ -91,18 +95,26 @@ public class MainActivity extends Activity implements
 	public boolean onNavigationItemSelected(int position, long id) {
 		// When the given dropdown item is selected, show its contents in the
 		// container view.
-        if(position == 0)
-        {
+
+        if (position == 0) {
             BlockUtils.setCurrentMode("all");
-        }
-        else if(position == 1)
-        {
+        } else if (position == 1) {
             BlockUtils.setCurrentMode("home");
-        }
-        else
-        {
+        } else {
             BlockUtils.setCurrentMode("work");
         }
+
+        if(BlockUtils.isBlockServiceRunning(this, CoreService.class))
+        {
+            alert = new AlertDialog.Builder(this)
+                    .setTitle("Alert")
+                    .setMessage("Block is running")
+                    .setPositiveButton("OK", null)
+                    .show();
+
+            getActionBar().setSelectedNavigationItem(2);
+        }
+
 
 		getFragmentManager()
 				.beginTransaction()
