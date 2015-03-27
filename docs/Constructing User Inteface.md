@@ -18,3 +18,9 @@ Step 10: Icons
 
 Steps 11: Loading
 
+Fonts: 
+Text: Roboto 12px;
+Header: 
+Colors: #fffff
+
+
