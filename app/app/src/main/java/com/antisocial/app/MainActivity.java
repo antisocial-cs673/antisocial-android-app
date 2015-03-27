@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.antisocial.app.service.CoreService;
 import com.antisocial.app.util.BlockUtils;
+import com.antisocial.app.util.ProfileUtils;
 
 public class MainActivity extends Activity implements
 		ActionBar.OnNavigationListener {
@@ -30,6 +31,8 @@ public class MainActivity extends Activity implements
     private final int MAIN_DISPLAY_TIME = 1000;
     private AlertDialog alert;
 
+    private String[] profileList;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,17 +43,14 @@ public class MainActivity extends Activity implements
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 
+        profileList = ProfileUtils.getProfiles(this);
+
          // Set up the dropdown list navigation in the action bar.
           actionBar.setListNavigationCallbacks(
           // Specify a SpinnerAdapter to populate the dropdown list.
                                 new ArrayAdapter<String>(actionBar.getThemedContext(),
                                         android.R.layout.simple_list_item_1,
-                                        android.R.id.text1, new String[] {
-                                        getString(R.string.title_section1),
-                                        getString(R.string.title_section2),
-                                        getString(R.string.title_section3), }), this);
-
-        actionBar.setSelectedNavigationItem(2);
+                                        android.R.id.text1, profileList), this);
 	}
 
 
@@ -78,6 +78,7 @@ public class MainActivity extends Activity implements
 		return true;
 	}
 
+    //ActionBar events
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -91,18 +92,12 @@ public class MainActivity extends Activity implements
 		return super.onOptionsItemSelected(item);
 	}
 
+    //Profile events
 	@Override
 	public boolean onNavigationItemSelected(int position, long id) {
 		// When the given dropdown item is selected, show its contents in the
 		// container view.
 
-        if (position == 0) {
-            BlockUtils.setCurrentMode("all");
-        } else if (position == 1) {
-            BlockUtils.setCurrentMode("home");
-        } else {
-            BlockUtils.setCurrentMode("work");
-        }
 
         if(BlockUtils.isBlockServiceRunning(this, CoreService.class))
         {
@@ -112,7 +107,18 @@ public class MainActivity extends Activity implements
                     .setPositiveButton("OK", null)
                     .show();
 
-            getActionBar().setSelectedNavigationItem(2);
+            int i = 0;
+            for (String s : profileList)
+            {
+                if(s.equals(BlockUtils.getCurrentMode()))
+                    break;
+                i++;
+            }
+
+            getActionBar().setSelectedNavigationItem(i);
+        }
+        else {
+            BlockUtils.setCurrentMode(profileList[position]);
         }
 
 
