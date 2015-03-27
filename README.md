@@ -27,7 +27,3 @@
 
   [1]: https://github.com/antisocial-cs673/antisocial-android-app/issues "Issues"
 [2]:http://daringfireball.net/projects/markdown/syntax
-
-
-
-1111111
