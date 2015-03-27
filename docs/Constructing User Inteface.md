@@ -1,4 +1,4 @@
-Step 1: Know your user
+**Step 1:** Know your user
 
 Step 2: Understand the business function in question
 
