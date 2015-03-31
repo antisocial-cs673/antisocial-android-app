@@ -2,6 +2,7 @@ package com.antisocial.app.util;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import android.app.Activity;
@@ -13,12 +14,11 @@ import android.preference.PreferenceManager;
 
 public class BlockUtils {
 
-    private static String currentMode = "all";
+    private static String currentMode = "All";
 
     public static void setCurrentMode(String mode)
     {
         currentMode = mode;
-        Logger.getLogger().i("Set the current mode to" + mode);
     }
 
     public static String getCurrentMode()

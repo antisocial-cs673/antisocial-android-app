@@ -5,10 +5,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,6 +43,7 @@ public class MainActivity extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.activity_main);
 
         // Set up the action bar to show a dropdown list.
@@ -58,12 +61,17 @@ public class MainActivity extends Activity implements
                                         android.R.id.text1, profileList), this);
 
         statusTextView = (TextView)findViewById(R.id.statusTextView);
-        MenuItem item = (MenuItem)findViewById(R.id.block_item);
+
 
         if(BlockUtils.isBlockServiceRunning(this, CoreService.class))
         {
-            //item.setIcon(R.drawable.ic_unlock);
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+            actionBar.setSelectedNavigationItem(pref.getInt(STATE_SELECTED_NAVIGATION_ITEM, 0));
             statusTextView.setText(R.string.active);
+            MenuItem item = (MenuItem)findViewById(R.id.block_item);
+            if(item != null){
+                item.setIcon(R.drawable.ic_unlock);
+            }
         }
 	}
 
@@ -100,8 +108,18 @@ public class MainActivity extends Activity implements
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+            if(BlockUtils.isBlockServiceRunning(this, CoreService.class)) {
+                alert = new AlertDialog.Builder(this)
+                        .setTitle("Alert")
+                        .setMessage("Block is running")
+                        .setPositiveButton("OK", null)
+                        .show();
+                return true;
+            }
+
             Intent intent = new Intent(this, BlockListActivity.class);
             startActivity(intent);
+
 			return true;
 		}
         else if(id == R.id.block_item)
@@ -129,36 +147,16 @@ public class MainActivity extends Activity implements
 		// When the given dropdown item is selected, show its contents in the
 		// container view.
 
-        Logger.getLogger().e("Current mode: " + BlockUtils.getCurrentMode());
-
         if(BlockUtils.isBlockServiceRunning(this, CoreService.class))
         {
-
             alert = new AlertDialog.Builder(this)
                     .setTitle("Alert")
                     .setMessage("Block is running")
                     .setPositiveButton("OK", null)
                     .show();
-
-            int count = 0;
-            for (String s : profileList)
-            {
-                if(s.equals(BlockUtils.getCurrentMode())) {
-                    break;
-                }
-
-                count++;
-            }
-
-            if(count > 2)
-                Logger.getLogger().e("Count is: " + String.valueOf(count));
-            getActionBar().setSelectedNavigationItem(count);
-
-
         }
         else {
             BlockUtils.setCurrentMode(profileList[position]);
-            //Logger.getLogger().i("Position: " + position);
         }
 
 
@@ -170,6 +168,16 @@ public class MainActivity extends Activity implements
 		return true;
 	}
 
+    @Override
+    public void onDestroy()
+    {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar().getSelectedNavigationIndex());
+        editor.commit();
+        
+        super.onDestroy();
+    }
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
