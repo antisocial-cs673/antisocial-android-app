@@ -19,6 +19,17 @@
 
     </style>
 
+    <style name="NoActionBarApiSpecific" parent="android:Theme.Holo.Light">
+
+    </style>
+
+    <style name="NoActionBar" parent="NoActionBarApiSpecific">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    
     <style name="WarningText">
         <item name="android:textSize">50sp</item>
         <item name="android:textColor">@color/txt_white</item>

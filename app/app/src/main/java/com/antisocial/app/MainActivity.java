@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.antisocial.app.service.CoreService;
 import com.antisocial.app.util.BlockUtils;
+import com.antisocial.app.util.Logger;
 import com.antisocial.app.util.ProfileUtils;
 
 public class MainActivity extends Activity implements
@@ -128,27 +129,36 @@ public class MainActivity extends Activity implements
 		// When the given dropdown item is selected, show its contents in the
 		// container view.
 
+        Logger.getLogger().e("Current mode: " + BlockUtils.getCurrentMode());
 
         if(BlockUtils.isBlockServiceRunning(this, CoreService.class))
         {
+
             alert = new AlertDialog.Builder(this)
                     .setTitle("Alert")
                     .setMessage("Block is running")
                     .setPositiveButton("OK", null)
                     .show();
 
-            int i = 0;
+            int count = 0;
             for (String s : profileList)
             {
-                if(s.equals(BlockUtils.getCurrentMode()))
+                if(s.equals(BlockUtils.getCurrentMode())) {
                     break;
-                i++;
+                }
+
+                count++;
             }
 
-            getActionBar().setSelectedNavigationItem(i);
+            if(count > 2)
+                Logger.getLogger().e("Count is: " + String.valueOf(count));
+            getActionBar().setSelectedNavigationItem(count);
+
+
         }
         else {
             BlockUtils.setCurrentMode(profileList[position]);
+            //Logger.getLogger().i("Position: " + position);
         }
 
 

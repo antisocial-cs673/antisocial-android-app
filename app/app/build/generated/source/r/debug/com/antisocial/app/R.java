@@ -82,8 +82,7 @@ public final class R {
     }
     public static final class menu {
         public static final int main=0x7f080000;
-        public static final int menu_begin=0x7f080001;
-        public static final int menu_setting=0x7f080002;
+        public static final int menu_setting=0x7f080001;
     }
     public static final class string {
         public static final int action_settings=0x7f060000;
@@ -118,6 +117,8 @@ public final class R {
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
-        public static final int WarningText=0x7f070002;
+        public static final int NoActionBar=0x7f070002;
+        public static final int NoActionBarApiSpecific=0x7f070003;
+        public static final int WarningText=0x7f070004;
     }
 }

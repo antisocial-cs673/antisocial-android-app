@@ -22,6 +22,7 @@ public class BeginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_begin);
+        getActionBar().hide();
 
         welcomeImg = (ImageView) this.findViewById(R.id.begin);
 
