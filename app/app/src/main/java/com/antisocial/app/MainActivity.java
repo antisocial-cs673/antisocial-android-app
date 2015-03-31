@@ -5,6 +5,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,6 +33,7 @@ public class MainActivity extends Activity implements
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
     private final int MAIN_DISPLAY_TIME = 1000;
     private AlertDialog alert;
+    private TextView statusTextView;
 
     private String[] profileList;
 
@@ -51,6 +55,15 @@ public class MainActivity extends Activity implements
                                 new ArrayAdapter<String>(actionBar.getThemedContext(),
                                         android.R.layout.simple_list_item_1,
                                         android.R.id.text1, profileList), this);
+
+        statusTextView = (TextView)findViewById(R.id.statusTextView);
+        MenuItem item = (MenuItem)findViewById(R.id.block_item);
+
+        if(BlockUtils.isBlockServiceRunning(this, CoreService.class))
+        {
+            //item.setIcon(R.drawable.ic_unlock);
+            statusTextView.setText(R.string.active);
+        }
 	}
 
 
@@ -86,8 +99,25 @@ public class MainActivity extends Activity implements
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, BlockListActivity.class);
+            startActivity(intent);
 			return true;
 		}
+        else if(id == R.id.block_item)
+        {
+            if (BlockUtils.isBlockServiceRunning(this, CoreService.class)) {
+                Intent intent = new Intent(this, CoreService.class);
+                stopService(intent);
+                item.setIcon(R.drawable.ic_lock);
+                statusTextView.setText(R.string.not_active);
+            } else {
+                Intent intent = new Intent(this, CoreService.class);
+                startService(intent);
+                item.setIcon(R.drawable.ic_unlock);
+
+                statusTextView.setText(R.string.active);
+            }
+        }
 
 		return super.onOptionsItemSelected(item);
 	}
@@ -122,10 +152,11 @@ public class MainActivity extends Activity implements
         }
 
 
-		getFragmentManager()
+		/*getFragmentManager()
 				.beginTransaction()
 				.replace(R.id.container,
-						PlaceholderFragment.newInstance(position + 1)).commit();
+						PlaceholderFragment.newInstance(position + 1)).commit();*/
+
 		return true;
 	}
 
