@@ -7,8 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="5dip"
-    android:background="@color/white"
-    android:id="@+id/listViewLayout">
+    android:background="@color/light_blue"   >
 
     <ImageView
         android:id="@+id/app_logo"
@@ -26,7 +25,7 @@
         android:layout_toRightOf="@id/app_logo"
         android:singleLine="true"
         android:layout_marginLeft="5dip"
-        android:textColor="@color/black" />
+        android:textColor="@color/txt_black" />
 
     <CheckBox
         android:id="@+id/check_box"
