@@ -128,13 +128,13 @@ public class MainActivity extends Activity implements
 		}
         else if(id == R.id.block_item)
         {
-            Date tmp = new Date();
+            /*Date tmp = new Date();
             tmp.setTime(-5000);
             if(CoreService.getStartedAt().getTime() < tmp.getTime())
             {
                 Toast.makeText(MainActivity.this, "HI", Toast.LENGTH_LONG).show();
                 return true;
-            }
+            }*/
             if (BlockUtils.isBlockServiceRunning(this, CoreService.class)) {
                 Intent intent = new Intent(this, CoreService.class);
                 stopService(intent);
@@ -160,14 +160,16 @@ public class MainActivity extends Activity implements
 
         if(BlockUtils.isBlockServiceRunning(this, CoreService.class))
         {
-            alert = new AlertDialog.Builder(this)
-                    .setTitle("Alert")
-                    .setMessage("Block is running")
-                    .setPositiveButton("OK", null)
-                    .show();
-
-            //reset to previous value
             getActionBar().setSelectedNavigationItem(currentSelectedItem);
+            if(currentSelectedItem != position) {
+                alert = new AlertDialog.Builder(this)
+                        .setTitle("Alert")
+                        .setMessage("Block is running")
+                        .setPositiveButton("OK", null)
+                        .show();
+            }
+            //reset to previous value
+
         }
         else {
             BlockUtils.setCurrentMode(profileList[position]);
