@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.pm.PackageInfo;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.antisocial.app.R;
@@ -79,8 +81,12 @@ public class AppListAdapter extends BaseAdapter {
 		
 		if (contains(mCheckedList, packageInfo)) {
 			holder.checkBox.setChecked(true);
+            convertView.setBackgroundColor(Color.rgb(51, 204, 255));
+            holder.textView.setTextColor(Color.WHITE);
 		} else {
 			holder.checkBox.setChecked(false);
+            convertView.setBackgroundColor(Color.WHITE);
+            holder.textView.setTextColor(Color.BLACK);
 		}
 		
 		convertView.setOnClickListener(new OnClickListener() {
@@ -90,8 +96,10 @@ public class AppListAdapter extends BaseAdapter {
 
 				if (contains(mCheckedList, packageInfo)) {
 					remove(mCheckedList, packageInfo);
+
 				} else {
 					mCheckedList.add(packageInfo.packageName);
+
 				}
 				
 				BlockUtils.save(mInstance, mCheckedList);
