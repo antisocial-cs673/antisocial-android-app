@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements
     private final int MAIN_DISPLAY_TIME = 1000;
     private AlertDialog alert;
     private TextView statusTextView;
-
+    private int currentSelectedItem = 0;
     private String[] profileList;
 
 	@Override
@@ -66,7 +66,8 @@ public class MainActivity extends Activity implements
         if(BlockUtils.isBlockServiceRunning(this, CoreService.class))
         {
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-            actionBar.setSelectedNavigationItem(pref.getInt(STATE_SELECTED_NAVIGATION_ITEM, 0));
+            currentSelectedItem = pref.getInt(STATE_SELECTED_NAVIGATION_ITEM, 0);
+            actionBar.setSelectedNavigationItem(currentSelectedItem);
             statusTextView.setText(R.string.active);
             MenuItem item = (MenuItem)findViewById(R.id.block_item);
             if(item != null){
@@ -154,9 +155,13 @@ public class MainActivity extends Activity implements
                     .setMessage("Block is running")
                     .setPositiveButton("OK", null)
                     .show();
+
+            //reset to previous value
+            getActionBar().setSelectedNavigationItem(currentSelectedItem);
         }
         else {
             BlockUtils.setCurrentMode(profileList[position]);
+            currentSelectedItem = position;
         }
 
 
