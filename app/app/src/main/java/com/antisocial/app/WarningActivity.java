@@ -19,7 +19,7 @@ public class WarningActivity extends Activity {
 
 	@Override
 	public void onBackPressed() {
-        //Delay is used to make it more 
+        //Delay is used to make it more
         new Handler().postDelayed(new Runnable(){
             public void run() {
                 Intent MyIntent = new Intent(Intent.ACTION_MAIN);

@@ -2,12 +2,12 @@
 <resources>
     <!-- From: file:/C:/Users/Igibek/Documents/GitHub/antisocial-android-app/app/app/src/main/res/values/color.xml -->
     <eat-comment/>
+    <color name="black">#000000</color>
     <color name="light_blue">#33CCFF</color>
+    <color name="light_grey">#f3f3f3</color>
     <color name="listview_bg_sel">#d9d9d9</color>
-    <color name="listview_split">#dadada</color>
     <color name="transparent">#00000000</color>
-    <color name="txt_black">#000000</color>
-    <color name="txt_white">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <!-- From: file:/C:/Users/Igibek/Documents/GitHub/antisocial-android-app/app/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
@@ -54,7 +54,7 @@
     </style>
     <style name="WarningText">
         <item name="android:textSize">50sp</item>
-        <item name="android:textColor">@color/txt_white</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingTop">10dip</item>
         <item name="android:paddingBottom">10dip</item>

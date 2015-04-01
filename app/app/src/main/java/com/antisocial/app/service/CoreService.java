@@ -1,6 +1,7 @@
 package com.antisocial.app.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.app.ActivityManager;
 import android.app.Service;
@@ -21,7 +22,7 @@ public class CoreService extends Service {
 	private static final int delayMillis = 1000;
 
 	private ActivityManager mActivityManager;
-	
+	private static Date startedAt;
 	private Handler mHandler;
 	
 	private ArrayList<String> mBlockList = null;
@@ -39,7 +40,9 @@ public class CoreService extends Service {
 	    
 		mHandler = new Handler();
 		mHandler.postDelayed(mRunnable, delayMillis);
-		
+
+		startedAt = new Date();
+
 		Logger.getLogger().i( "onCreate" );
 	}
 	
@@ -76,4 +79,8 @@ public class CoreService extends Service {
 		
 		Logger.getLogger().i( "onDestroy" );
 	}
+
+    public static Date getStartedAt() {
+        return startedAt;
+    }
 }

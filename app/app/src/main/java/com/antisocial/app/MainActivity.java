@@ -20,11 +20,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.antisocial.app.service.CoreService;
 import com.antisocial.app.util.BlockUtils;
 import com.antisocial.app.util.Logger;
 import com.antisocial.app.util.ProfileUtils;
+
+import java.util.Date;
 
 public class MainActivity extends Activity implements
 		ActionBar.OnNavigationListener {
@@ -125,6 +128,13 @@ public class MainActivity extends Activity implements
 		}
         else if(id == R.id.block_item)
         {
+            Date tmp = new Date();
+            tmp.setTime(-5000);
+            if(CoreService.getStartedAt().getTime() < tmp.getTime())
+            {
+                Toast.makeText(MainActivity.this, "HI", Toast.LENGTH_LONG).show();
+                return true;
+            }
             if (BlockUtils.isBlockServiceRunning(this, CoreService.class)) {
                 Intent intent = new Intent(this, CoreService.class);
                 stopService(intent);
