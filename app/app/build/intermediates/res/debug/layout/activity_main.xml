@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/txt_white"
+    android:background="@color/white"
     tools:context="com.antisocial.app.MainActivity"
     tools:ignore="MergeRootFrame"   >
 
@@ -17,4 +17,4 @@
         android:textAllCaps="true"
         android:textSize="20dp"/>
 
-</RelativeLayout><!-- From: file:/C:/Users/Igibek/Documents/GitHub/antisocial-android-app/app/app/src/main/res/layout/activity_main.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Nirmit%20Shah/Documents/GitHub/antisocial-android-app/app/app/src/main/res/layout/activity_main.xml -->

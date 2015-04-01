@@ -1,5 +1,46 @@
 package com.antisocial.app;
+import java.util.Calendar;
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.os.SystemClock;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TimePicker;
+import android.widget.Toast;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Fragment;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.antisocial.app.service.CoreService;
+import com.antisocial.app.util.BlockUtils;
+import com.antisocial.app.util.Logger;
+import com.antisocial.app.util.ProfileUtils;
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.widget.Toast;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -27,24 +68,24 @@ import com.antisocial.app.util.Logger;
 import com.antisocial.app.util.ProfileUtils;
 
 public class MainActivity extends Activity implements
-		ActionBar.OnNavigationListener {
+        ActionBar.OnNavigationListener {
 
-	/**
-	 * The serialization (saved instance state) Bundle key representing the
-	 * current dropdown position.
-	 */
-	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
+    /**
+     * The serialization (saved instance state) Bundle key representing the
+     * current dropdown position.
+     */
+    private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
     private final int MAIN_DISPLAY_TIME = 1000;
     private AlertDialog alert;
     private TextView statusTextView;
     private int currentSelectedItem = 0;
     private String[] profileList;
+    private PendingIntent pendingIntent;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-
-		setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
         // Set up the action bar to show a dropdown list.
         final ActionBar actionBar = getActionBar();
@@ -53,12 +94,12 @@ public class MainActivity extends Activity implements
 
         profileList = ProfileUtils.getProfiles(this);
 
-         // Set up the dropdown list navigation in the action bar.
-          actionBar.setListNavigationCallbacks(
-          // Specify a SpinnerAdapter to populate the dropdown list.
-                                new ArrayAdapter<String>(actionBar.getThemedContext(),
-                                        android.R.layout.simple_list_item_1,
-                                        android.R.id.text1, profileList), this);
+        // Set up the dropdown list navigation in the action bar.
+        actionBar.setListNavigationCallbacks(
+                // Specify a SpinnerAdapter to populate the dropdown list.
+                new ArrayAdapter<String>(actionBar.getThemedContext(),
+                        android.R.layout.simple_list_item_1,
+                        android.R.id.text1, profileList), this);
 
         statusTextView = (TextView)findViewById(R.id.statusTextView);
 
@@ -74,41 +115,41 @@ public class MainActivity extends Activity implements
                 item.setIcon(R.drawable.ic_unlock);
             }
         }
-	}
+    }
 
 
-	@Override
-	public void onRestoreInstanceState(Bundle savedInstanceState) {
-		// Restore the previously serialized current dropdown position.
-		if (savedInstanceState.containsKey(STATE_SELECTED_NAVIGATION_ITEM)) {
-			getActionBar().setSelectedNavigationItem(
-					savedInstanceState.getInt(STATE_SELECTED_NAVIGATION_ITEM));
-		}
-	}
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Restore the previously serialized current dropdown position.
+        if (savedInstanceState.containsKey(STATE_SELECTED_NAVIGATION_ITEM)) {
+            getActionBar().setSelectedNavigationItem(
+                    savedInstanceState.getInt(STATE_SELECTED_NAVIGATION_ITEM));
+        }
+    }
 
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		// Serialize the current dropdown position.
-		outState.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar()
-				.getSelectedNavigationIndex());
-	}
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        // Serialize the current dropdown position.
+        outState.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar()
+                .getSelectedNavigationIndex());
+    }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
     //ActionBar events
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
             if(BlockUtils.isBlockServiceRunning(this, CoreService.class)) {
                 alert = new AlertDialog.Builder(this)
                         .setTitle("Alert")
@@ -121,32 +162,65 @@ public class MainActivity extends Activity implements
             Intent intent = new Intent(this, BlockListActivity.class);
             startActivity(intent);
 
-			return true;
-		}
+            return true;
+        }
         else if(id == R.id.block_item)
         {
             if (BlockUtils.isBlockServiceRunning(this, CoreService.class)) {
                 Intent intent = new Intent(this, CoreService.class);
                 stopService(intent);
                 item.setIcon(R.drawable.ic_lock);
-                statusTextView.setText(R.string.not_active);
+                TextView i= (TextView)findViewById(R.id.statusTextView);
+                i.setText(R.string.not_active);
+                AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+                alarmManager.cancel(pendingIntent);
             } else {
+
+                setContentView(R.layout.activity_timer);
+                Button buttonStart = (Button) findViewById(R.id.startalarm);
+                buttonStart.setOnClickListener(new Button.OnClickListener() {
+
+                    public void onClick(View arg0) {
+                        // Perform action on click
+                        Intent myIntent = new Intent(MainActivity.this, AlarmService.class);
+                        TimePicker i = (TimePicker) findViewById(R.id.Min);
+                        final Calendar c = Calendar.getInstance();
+                        int hour = c.get(Calendar.HOUR_OF_DAY) * 60;
+                        int minute = c.get(Calendar.MINUTE);
+                        int hour1 = i.getCurrentHour() * 60;
+                        int minute1 = i.getCurrentMinute();
+                        int diff = (hour1 + minute1) - (hour + minute);
+                        pendingIntent = PendingIntent.getService(MainActivity.this, 0, myIntent, 0);
+                        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.setTimeInMillis(System.currentTimeMillis());
+                        calendar.add(Calendar.MINUTE, diff);
+                        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+                        String y = Integer.toString(diff);
+                        Toast.makeText(MainActivity.this, "You got " + y + " minutes to be Social !", Toast.LENGTH_LONG).show();
+                        setContentView(R.layout.activity_main);
+                        TextView st= (TextView)findViewById(R.id.statusTextView);
+                        st.setText(R.string.active);
+
+                    }
+                });
+
                 Intent intent = new Intent(this, CoreService.class);
                 startService(intent);
                 item.setIcon(R.drawable.ic_unlock);
 
-                statusTextView.setText(R.string.active);
             }
+
         }
 
-		return super.onOptionsItemSelected(item);
-	}
+        return super.onOptionsItemSelected(item);
+    }
 
     //Profile events
-	@Override
-	public boolean onNavigationItemSelected(int position, long id) {
-		// When the given dropdown item is selected, show its contents in the
-		// container view.
+    @Override
+    public boolean onNavigationItemSelected(int position, long id) {
+        // When the given dropdown item is selected, show its contents in the
+        // container view.
 
         if(BlockUtils.isBlockServiceRunning(this, CoreService.class))
         {
@@ -170,8 +244,8 @@ public class MainActivity extends Activity implements
 				.replace(R.id.container,
 						PlaceholderFragment.newInstance(position + 1)).commit();*/
 
-		return true;
-	}
+        return true;
+    }
 
     @Override
     public void onDestroy()
@@ -180,87 +254,87 @@ public class MainActivity extends Activity implements
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar().getSelectedNavigationIndex());
         editor.commit();
-        
+
         super.onDestroy();
     }
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-		
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		private static final String ARG_SECTION_NUMBER = "section_number";
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
 
-		private Button startBlock, blockListBtn;
-		
-		/**
-		 * Returns a new instance of this fragment for the given section number.
-		 */
-		public static PlaceholderFragment newInstance(int sectionNumber) {
-			PlaceholderFragment fragment = new PlaceholderFragment();
-			Bundle args = new Bundle();
-			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-			fragment.setArguments(args);
-			return fragment;
-		}
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
 
-		public PlaceholderFragment() {
-			
-		}
-		
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
-					false);
-			TextView textView = (TextView) rootView
-					.findViewById(R.id.section_label);
-			textView.setText(Integer.toString(getArguments().getInt(
-					ARG_SECTION_NUMBER)));
+        private Button startBlock, blockListBtn;
 
-			startBlock = (Button) rootView.findViewById(R.id.start_block_btn);
+        /**
+         * Returns a new instance of this fragment for the given section number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
 
-			blockListBtn = (Button) rootView.findViewById(R.id.set_block_list);
-				
-			
-			if(BlockUtils.isBlockServiceRunning(getActivity(), CoreService.class)){
-				startBlock.setText(R.string.stop_block);
-			}else{
-				startBlock.setText(R.string.start_block);
-			}
-			
-			startBlock.setOnClickListener(onListener);
-			blockListBtn.setOnClickListener(onListener);
+        public PlaceholderFragment() {
 
-			return rootView;
-		}
+        }
 
-		private OnClickListener onListener = new OnClickListener() {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main, container,
+                    false);
+            TextView textView = (TextView) rootView
+                    .findViewById(R.id.section_label);
+            textView.setText(Integer.toString(getArguments().getInt(
+                    ARG_SECTION_NUMBER)));
 
-			@Override
-			public void onClick(View view) {
-				if (view == startBlock) {
-					if (BlockUtils.isBlockServiceRunning(getActivity(),
-							CoreService.class)) {
-						Intent intent = new Intent();
-						intent.setClass(getActivity(), CoreService.class);
-						getActivity().stopService(intent);
-						startBlock.setText(R.string.start_block);
-					} else {
-						Intent intent = new Intent();
-						intent.setClass(getActivity(), CoreService.class);
-						getActivity().startService(intent);
-						startBlock.setText(R.string.stop_block);
-					}
-				} else if (view == blockListBtn) {
-					Intent intent = new Intent();
-					intent.setClass(getActivity(), BlockListActivity.class);
-					getActivity().startActivity(intent);
-				}
-			}
-		};
-	}
+            startBlock = (Button) rootView.findViewById(R.id.start_block_btn);
+
+            blockListBtn = (Button) rootView.findViewById(R.id.set_block_list);
+
+
+            if(BlockUtils.isBlockServiceRunning(getActivity(), CoreService.class)){
+                startBlock.setText(R.string.stop_block);
+            }else{
+                startBlock.setText(R.string.start_block);
+            }
+
+            startBlock.setOnClickListener(onListener);
+            blockListBtn.setOnClickListener(onListener);
+
+            return rootView;
+        }
+
+        private OnClickListener onListener = new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                if (view == startBlock) {
+                    if (BlockUtils.isBlockServiceRunning(getActivity(),
+                            CoreService.class)) {
+                        Intent intent = new Intent();
+                        intent.setClass(getActivity(), CoreService.class);
+                        getActivity().stopService(intent);
+                        startBlock.setText(R.string.start_block);
+                    } else {
+                        Intent intent = new Intent();
+                        intent.setClass(getActivity(), CoreService.class);
+                        getActivity().startService(intent);
+                        startBlock.setText(R.string.stop_block);
+                    }
+                } else if (view == blockListBtn) {
+                    Intent intent = new Intent();
+                    intent.setClass(getActivity(), BlockListActivity.class);
+                    getActivity().startActivity(intent);
+                }
+            }
+        };
+    }
 }

@@ -3,15 +3,16 @@
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:gravity="center"
-    android:background="@color/light_blue">
+    android:background="@color/light_grey">
 
      <ListView android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:cacheColorHint="#00000000"
-        android:divider="@color/listview_split"
-        android:dividerHeight="1dip"
-        android:listSelector="@drawable/listview_selector" />
+        android:divider="@color/light_grey"
+        android:dividerHeight="6dp"
+        android:listSelector="@drawable/listview_selector"
+         android:layout_margin="6dp" />
 
     <ProgressBar
         android:id="@+id/progressView1"
@@ -22,4 +23,4 @@
         android:indeterminateDrawable="@drawable/progress_bar_img"
         android:visibility="gone" />
 
-</FrameLayout><!-- From: file:/C:/Users/Igibek/Documents/GitHub/antisocial-android-app/app/app/src/main/res/layout/activity_applist.xml -->
+</FrameLayout><!-- From: file:/C:/Users/Nirmit%20Shah/Documents/GitHub/antisocial-android-app/app/app/src/main/res/layout/activity_applist.xml -->

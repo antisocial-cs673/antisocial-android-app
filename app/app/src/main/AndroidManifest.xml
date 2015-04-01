@@ -57,6 +57,7 @@
             android:name="com.antisocial.app.SettingActivity"
             android:label="@string/title_activity_setting" >
         </activity>
+        <service android:name=".AlarmService" />
     </application>
 
 </manifest>

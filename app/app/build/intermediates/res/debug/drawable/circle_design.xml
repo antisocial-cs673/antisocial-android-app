@@ -1,6 +1,6 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <solid android:color="@color/txt_white" />
+    <solid android:color="@color/white" />
 
     <stroke
         android:width="3dp"
@@ -12,4 +12,4 @@
         android:topLeftRadius="200dp"
         android:topRightRadius="200dp" />
 
-</shape><!-- From: file:/C:/Users/Igibek/Documents/GitHub/antisocial-android-app/app/app/src/main/res/drawable/circle_design.xml -->
+</shape><!-- From: file:/C:/Users/Nirmit%20Shah/Documents/GitHub/antisocial-android-app/app/app/src/main/res/drawable/circle_design.xml -->

@@ -73,6 +73,7 @@ public class CoreService extends Service {
 
 		mHandler.removeCallbacks(mRunnable);
 		super.onDestroy();
+
 		
 		Logger.getLogger().i( "onDestroy" );
 	}

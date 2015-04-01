@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Igibek\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jar="C:\Users\Nirmit Shah\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
-        <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-9ab0b065e56df4e685719d30dcf5ee1007ed30f7.jar" />
+        <dex dex="C:\Users\Nirmit Shah\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-0d5c29f750fedbcf0294bd2fb9c48e0b189d818a.jar" />
     </item>
 
 </items>
