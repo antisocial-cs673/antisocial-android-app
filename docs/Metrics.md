@@ -1,10 +1,12 @@
 Metrics
 ------------------
+ - Project Milestones
  - Lines of code
  - Features implemented
  - Issues closed
  - Hours Invested
  - Defect resolution
+ - Defect discovery and defect injection
  
 Project Metrics
 
@@ -17,9 +19,4 @@ Project Milestones
 
 Testing Progress - Testing priciple - Develop each module and test its functionality. To maintain robustness check all previous modules when you create new ones
 
-
-
-Defect discovery and defect injection
-
-per phase
 
