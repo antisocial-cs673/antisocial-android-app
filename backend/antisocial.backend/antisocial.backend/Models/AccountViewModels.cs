@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace antisocial.backend.Models
 {
@@ -40,4 +41,8 @@ namespace antisocial.backend.Models
 
         public string ProviderKey { get; set; }
     }
+
+
+    //controllers models
+    
 }

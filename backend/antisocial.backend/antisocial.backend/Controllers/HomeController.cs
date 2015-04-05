@@ -1,4 +1,5 @@
-﻿using System;
+﻿using antisocial.backend.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,23 @@ namespace antisocial.backend.Controllers
             ViewBag.Title = "Home Page";
 
             return View();
+        }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            //Database
+            var model = new ContactModel
+            {
+                Name = "John Doe",
+                Phone = "6666"
+            };
+
+            return View(model);
         }
     }
 }

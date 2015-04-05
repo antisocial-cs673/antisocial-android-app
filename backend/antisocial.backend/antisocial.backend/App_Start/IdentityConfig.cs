@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using antisocial.backend.Models;
+using Microsoft.Owin.Security;
+using System.Security.Claims;
 
 namespace antisocial.backend
 {
@@ -42,4 +44,6 @@ namespace antisocial.backend
             return manager;
         }
     }
+
+   
 }
