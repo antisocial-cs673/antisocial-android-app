@@ -3,4 +3,4 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="false" android:drawable="@drawable/check_box_nor" />
     <item android:state_checked="true" android:drawable="@drawable/check_box_checked" />
-</selector><!-- From: file:/C:/Users/Igibek/Documents/GitHub/antisocial-android-app/app/app/src/main/res/drawable/checkbox_btn.xml -->
+</selector><!-- From: file:/Users/Khozaima/Documents/Git/antisocial-android-app/app/app/src/main/res/drawable/checkbox_btn.xml -->
