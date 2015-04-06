@@ -3,7 +3,7 @@
     package="com.antisocial.app"
     android:versionCode="1"
     android:versionName="1.0" >
-<!--min-->
+<!--min and maximum android sdk version supported-->
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="21" />
