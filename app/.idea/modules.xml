@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/android-rest-lib/android-rest-lib.iml" filepath="$PROJECT_DIR$/android-rest-lib/android-rest-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app-app.iml" filepath="$PROJECT_DIR$/app/app-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/org.apache.httpclient/org.apache.httpclient.iml" filepath="$PROJECT_DIR$/org.apache.httpclient/org.apache.httpclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zxing-2.3.0/zxing-2.3.0.iml" filepath="$PROJECT_DIR$/zxing-2.3.0/zxing-2.3.0.iml" />
     </modules>
   </component>
 </project>

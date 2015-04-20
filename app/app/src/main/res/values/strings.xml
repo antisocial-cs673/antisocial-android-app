@@ -18,7 +18,27 @@
     <string name="active">Active</string>
     <string name="not_active">Not Active</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+
+    <string name="title_activity_register">Register</string>
+    <string name="action_register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="error_password_and_confirm_password_do_not_match">Password and confirm password do not match</string>
+
+
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="message_no_internet_connection">No internet connection.</string>
+    <string name="title_loading_login">Login...</string>
+    <string name="title_loading">Loading</string>
+    <string name="message_no_internet_connection_check">No internet connection. Please check your internet connection or try again later.</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

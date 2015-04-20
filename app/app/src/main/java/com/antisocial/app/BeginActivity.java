@@ -80,7 +80,7 @@ public class BeginActivity extends Activity {
     }
 
     private void skip() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }
