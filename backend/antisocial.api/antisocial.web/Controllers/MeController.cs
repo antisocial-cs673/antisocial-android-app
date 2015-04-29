@@ -17,7 +17,7 @@ namespace antisocial.web.Controllers
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
-            var userData = db.UserData.Find(User.Identity.GetUserId());
+            var userData = db.UserData.FirstOrDefault(e => e.User.UserName == User.Identity.Name);
             if (userData == null)
                 return HttpNotFound();
             ViewBag.Rank = db.UserData.Count(e => e.Score > userData.Score) + 1;
