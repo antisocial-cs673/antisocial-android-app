@@ -1,0 +1,21 @@
+﻿@model antisocial.entities.UserData
+
+@{
+    ViewBag.Title = @User.Identity.Name + "'s profile";
+}
+
+<div class="page-header">
+    <h1>@User.Identity.Name's profile</h1>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <img src="~/Content/images/anonymous-512.png" class="img-circle img-responsive img-thumbnail" style="width:150px;"/>
+        <h1>@User.Identity.Name</h1>
+        <h2 class="text-danger">Rank: #@ViewBag.Rank</h2>
+        <hr />
+        <h3><span class="text-success">Score:</span> <span class="big-font">@Model.Score</span> <span class="text-warning">Total minutes:</span> <span class="big-font">@Model.TotalBlockedTime</span></h3>
+    </div>
+</div>
+

@@ -7,6 +7,10 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
+
+import com.antisocial.app.auth.AuthHelper;
+import com.antisocial.app.webapi.domain.AuthToken;
+
 /**
  * Created by countdyang on 2015/3/2.
  */
@@ -80,7 +84,23 @@ public class BeginActivity extends Activity {
     }
 
     private void skip() {
-        startActivity(new Intent(this, LoginActivity.class));
-        finish();
+
+        AuthToken authToken = AuthHelper.getAuthToken(this);
+
+        String token = authToken.getAccessToken();
+
+        if(token == null || token == ""
+                || authToken.isExpired()) {
+
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+
+        } else {
+
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        }
+
+
     }
 }

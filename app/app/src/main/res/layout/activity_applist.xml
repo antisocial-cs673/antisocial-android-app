@@ -5,6 +5,16 @@
     android:gravity="center"
     android:background="@color/light_grey">
 
+	<Button android:id="@+id/btnChangeTime"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/light_grey"
+        android:dividerHeight="6dp"
+        android:text="Select Time"
+        android:layout_margin="6dp"
+        android:layout_weight="1"
+        />
      <ListView android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

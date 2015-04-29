@@ -6,6 +6,6 @@
     <color name="transparent">#00000000</color>
     <color name="light_blue">#33CCFF</color>
     <color name="light_grey">#f3f3f3</color>
-
+    <color name="light_red">#F44336</color>
     <color name="listview_bg_sel">#d9d9d9</color>
 </resources>

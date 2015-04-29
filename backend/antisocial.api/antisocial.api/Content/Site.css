@@ -15,12 +15,10 @@ select,
 textarea {
     max-width: 280px;
 }
-
 @font-face {
     font-family: 'Indie Flower';
     src: local('Indie Flower'), url('http://fonts.googleapis.com/css?family=Indie+Flower'), format('truetype');
 }
-
 body2 {
     font-family: 'Indie Flower', cursive;
     font-size: 48px;
@@ -104,4 +102,43 @@ bodycontact {
      text-decoration: underline;
      cursor: pointer;
  }
+
+
+.text1{
+    font-family :'Indie Flower', cursive ;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 30px;
+    color: #33CCFF;
+    text-shadow: 2px 2px 2px #aaa;
+}
+
+.text2{
+    font-family : 'Lucida Sans Unicode',Arial;
+    color: #33CCFF;
+    font-size: 25px;
+}
+
+.text3{
+    font-family : 'Lucida Sans Unicode',Arial;
+    font-size: 25px;
+}
+
+.text4{
+    font-family : font-family :'Indie Flower', cursive ;
+    font-size: 33px;
+}
+
+.darkred{
+    background-color:#33CCFF;
+}
+
+.img1-bg{
+    background-image:url('image.jpg')
+}
+
+.bg{
+    background-image:url('image7.jpg');
+    height: 325px;
+}
 

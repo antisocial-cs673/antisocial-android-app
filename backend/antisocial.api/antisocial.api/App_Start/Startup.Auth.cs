@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using antisocial.api.Providers;
 using antisocial.api.Models;
+using antisocial.entities;
 
 namespace antisocial.api
 {

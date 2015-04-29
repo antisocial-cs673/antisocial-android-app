@@ -16,17 +16,20 @@ import com.antisocial.app.WarningActivity;
 import com.antisocial.app.util.ApiAdapter;
 import com.antisocial.app.util.BlockUtils;
 import com.antisocial.app.util.Logger;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CoreService extends Service {
 
 	private static final int delayMillis = 1000;
 
 	private ActivityManager mActivityManager;
-	private static Date startedAt;
+
 	private Handler mHandler;
 	
 	private ArrayList<String> mBlockList = null;
-	
+
+    private static long blockServiceLaunchedTime = 0;
+
 	@Override
 	public IBinder onBind(Intent arg0) {
 		return null;
@@ -41,7 +44,7 @@ public class CoreService extends Service {
 		mHandler = new Handler();
 		mHandler.postDelayed(mRunnable, delayMillis);
 
-		startedAt = new Date();
+        blockServiceLaunchedTime = System.currentTimeMillis();
 
 		Logger.getLogger().i( "onCreate" );
 	}
@@ -76,11 +79,11 @@ public class CoreService extends Service {
 
 		mHandler.removeCallbacks(mRunnable);
 		super.onDestroy();
-		
+
 		Logger.getLogger().i( "onDestroy" );
 	}
 
-    public static Date getStartedAt() {
-        return startedAt;
+    public static long getBlockServiceLaunchedTime() {
+        return blockServiceLaunchedTime;
     }
 }
