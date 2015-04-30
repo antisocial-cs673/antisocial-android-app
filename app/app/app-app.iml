@@ -85,18 +85,21 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 21 Platform (1)" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="jackson-annotations-2.5.1" level="project" />
+    <orderEntry type="library" exported="" name="additionnal (1)" level="project" />
+    <orderEntry type="library" exported="" name="activation (1)" level="project" />
     <orderEntry type="library" exported="" name="support-v4-22.0.0" level="project" />
     <orderEntry type="library" exported="" name="jackson-databind-2.5.1" level="project" />
-    <orderEntry type="library" exported="" name="core-3.2.0" level="project" />
-    <orderEntry type="library" exported="" name="android-async-runners-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="okio-1.2.0" level="project" />
     <orderEntry type="library" exported="" name="okhttp-apache-2.2.0" level="project" />
-    <orderEntry type="library" exported="" name="support-annotations-22.0.0" level="project" />
     <orderEntry type="library" exported="" name="okhttp-2.2.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-22.0.0" level="project" />
-    <orderEntry type="library" exported="" name="jackson-core-2.5.1" level="project" />
     <orderEntry type="library" exported="" name="android-logger-1.0.10" level="project" />
+    <orderEntry type="library" exported="" name="jackson-annotations-2.5.1" level="project" />
+    <orderEntry type="library" exported="" name="core-3.2.0" level="project" />
+    <orderEntry type="library" exported="" name="android-async-runners-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-22.0.0" level="project" />
+    <orderEntry type="library" exported="" name="mail (1)" level="project" />
+    <orderEntry type="library" exported="" name="jackson-core-2.5.1" level="project" />
     <orderEntry type="module" module-name="org.apache.httpclient" exported="" />
     <orderEntry type="module" module-name="android-rest-lib" exported="" />
   </component>

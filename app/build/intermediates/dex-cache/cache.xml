@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\src\main\java\com\antisocial\app\activation (1).jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\activation (1)-930d9985e06fa2d95a3e047007a9874731ec7895.jar" />
+    </item>
+    <item
         jar="C:\Users\Igibek\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.5.1\e2a00ad1d7e540ec395e9296a34da484c8888d4d\jackson-core-2.5.1.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -37,11 +44,25 @@
         <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\jackson-databind-2.5.1-5a3501c7dfb3a52dd7f6535f50e8f6c65fa07701.jar" />
     </item>
     <item
+        jar="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\src\main\java\com\antisocial\app\additionnal (1).jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\additionnal (1)-ced6c18ea4c1801cae130973b5f71bfca44c72d9.jar" />
+    </item>
+    <item
         jar="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\exploded-aar\app\android-rest-lib\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="f75a92812667772cb32a51e8c1840a1c1efbc51f">
         <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\classes-e7083c734f5db01d05dda4ed9b135b5378f01138.jar" />
+    </item>
+    <item
+        jar="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\src\main\java\com\antisocial\app\mail (1).jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\mail (1)-73a185a3c4cd1b348a82a5016a4e7c49800ebab3.jar" />
     </item>
     <item
         jar="C:\Users\Igibek\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.2.0\959c454243581fdf730abfd4f4745441724bcf2c\okhttp-2.2.0.jar"
@@ -51,18 +72,18 @@
         <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\okhttp-2.2.0-2abc43d6a93b39b6a57dd83f9210504d77763843.jar" />
     </item>
     <item
-        jar="C:\Users\Igibek\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.5.1\71c1992c0cf5e0ce62574e96009572062ba0f4d9\jackson-annotations-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="71c1992c0cf5e0ce62574e96009572062ba0f4d9">
-        <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.5.1-da24d711d6e3a7ca0b059fc06c5d0bd3079d5c66.jar" />
-    </item>
-    <item
         jar="C:\Users\Igibek\.gradle\caches\modules-2\files-2.1\com.google.zxing\core\3.2.0\e019d15a13a9786f881141d2df6654b8510bce8b\core-3.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="e019d15a13a9786f881141d2df6654b8510bce8b">
         <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\core-3.2.0-c4ec2582ed90be6b0e4387c90cd1e9f10804f3a1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Igibek\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.5.1\71c1992c0cf5e0ce62574e96009572062ba0f4d9\jackson-annotations-2.5.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="71c1992c0cf5e0ce62574e96009572062ba0f4d9">
+        <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.5.1-da24d711d6e3a7ca0b059fc06c5d0bd3079d5c66.jar" />
     </item>
     <item
         jar="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
@@ -72,18 +93,18 @@
         <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\classes-56e0bbdf25822829a0baea1399ddc67723e791d3.jar" />
     </item>
     <item
-        jar="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\org.apache.httpclient\org.apache.httpclient.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1d7d28fa738bdbfe4fbd895d9486308999bdf440">
-        <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\org.apache.httpclient-9448b3d717709a630bc67c532ae267bdf4d4c19c.jar" />
-    </item>
-    <item
         jar="C:\Users\Igibek\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
         <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-ae66ad35dbbb733e049aa5d8b77941b99de8567a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\org.apache.httpclient\org.apache.httpclient.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1d7d28fa738bdbfe4fbd895d9486308999bdf440">
+        <dex dex="C:\Users\Igibek\Documents\GitHub\antisocial-android-app\app\app\build\intermediates\pre-dexed\debug\org.apache.httpclient-9448b3d717709a630bc67c532ae267bdf4d4c19c.jar" />
     </item>
     <item
         jar="C:\Users\Igibek\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.2.0\c0b52915a48fa91b1b94a28d4a2997bac5f524df\okio-1.2.0.jar"

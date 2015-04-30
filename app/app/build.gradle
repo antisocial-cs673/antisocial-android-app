@@ -33,4 +33,7 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
     compile 'com.google.zxing:core:3.2.0'
+    compile files('src/main/java/com/antisocial/app/mail (1).jar')
+    compile files('src/main/java/com/antisocial/app/additionnal (1).jar')
+    compile files('src/main/java/com/antisocial/app/activation (1).jar')
 }
